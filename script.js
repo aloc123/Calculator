@@ -21,8 +21,8 @@ const buttonMap = {
 };
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const edits = ["CLR", "DEL"];
-const operatorsList = ["*", "/", "+", "-", "="];
-const operatorsSeries = ["*", "/", "+", "-"];
+const operatorsList = ["*", "/", "+", "-", "=", "%"];
+const operatorsSeries = ["*", "/", "+", "-", "%"];
 
 function operate(op1, op2, operator){
     if (operator === "+") return +op1 + +op2;
@@ -32,6 +32,7 @@ function operate(op1, op2, operator){
         if (+op2 === 0) return "Math Error!";
         else return +op1 / +op2;
     }
+    else if (operator === "%") return +op1 % +op2;
 }
 
 //create 3 row
@@ -60,6 +61,7 @@ let overwrite = false;
 let operand1 = undefined;
 let operator = undefined;
 let operand2 = undefined;
+const MAX_LENGTH = 10;
 
 buttonsList.forEach((btn) => {
     //when clicked, check if button is a number, operator, or editor 
@@ -108,7 +110,8 @@ buttonsList.forEach((btn) => {
             else if (operand1 !== undefined){ //operand1 is defined here so we do the operation
                 operand2 = screen.textContent;
                 let result = operate(operand1, operand2, operator);
-                screen.textContent = result;
+                if (result.toString().length > MAX_LENGTH) screen.textContent = result.toPrecision(MAX_LENGTH);
+                else screen.textContent = result;
                 overwrite = true;
                 operand2 = undefined;
                 operator = undefined;
