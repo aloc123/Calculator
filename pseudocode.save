@@ -1,0 +1,15 @@
+when typing numbers, populate the screen.
+when an operator is clicked, do the following:
+if o
+	overwrite the operator
+else if first operand is undefined
+	store value of operator
+	take the screen text content and store it as the first operand.
+	clear the screen
+else
+	store value of operator
+	take the screen text content and store it as the second operand.
+	operate on the three variables
+	result is stored in the first operand, clear second operand and
+	^operator
+

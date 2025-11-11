@@ -1,0 +1,35 @@
+when typing numbers, if overwrite, CLEAR first then set overwrite to zero,
+^populate the screen afterwards
+
+when an operator is clicked, do the following:
+if operator is not undefind or screen is empty
+	if operand1 is undefined
+		do nothing...
+	else (operand1 is defined)
+		if operator is =
+			clear everything
+		else
+			overwrite the operator
+			set overwrite to 1(clear the screen)
+else if first operand is undefined
+	if (operator is =)
+		clear everything (variables and screen)
+	else
+		store value of operator
+		take the screen text content and store it as the first operand.
+	set overwrite to 1(clear the screen)
+else
+	take the screen text content and store it as the second operand.
+	operate on the three variables
+	display result, set overwrite to 1, clear second operand and operator
+	if operator is +,-,*,/
+		result is copied to the first operand
+		store new operator
+	else (operator is =)
+		first operand is cleared
+
+
+store second operand, and operate, display result, clear second operand and 
+operator, store new operator and copy result to first operand if not equals,
+else clear operator and first operand 
+
