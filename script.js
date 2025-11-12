@@ -124,7 +124,12 @@ buttonsList.forEach((btn) => {
         }
 
         else if (edits.includes(btnPressed)){
-            if (btnPressed === "CLR") screen.textContent = "";
+            if (btnPressed === "CLR"){
+                screen.textContent = "";
+                operand1 = undefined;
+                operand2 = undefined;
+                operator = undefined;
+            } 
             else screen.textContent = screen.textContent.slice(0, -1); 
         }
     });
